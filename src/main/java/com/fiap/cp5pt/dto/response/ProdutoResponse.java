@@ -13,7 +13,7 @@ public record ProdutoResponse(
         BigDecimal preco,
         Long estoque,
         Long categoriaId,
-        String ativo,
+        char ativo,
         LocalDateTime criadoEm
 ) {
 

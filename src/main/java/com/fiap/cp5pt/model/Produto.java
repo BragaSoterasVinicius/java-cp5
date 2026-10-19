@@ -46,7 +46,7 @@ public class Produto {
     private Categoria categoria;
 
     @Column(name = "ATIVO", nullable = false, length = 1)
-    private String ativo = "S";
+    private char ativo = 'S';
 
     @Column(name = "CRIADO_EM", insertable = false, updatable = false)
     private LocalDateTime criadoEm;

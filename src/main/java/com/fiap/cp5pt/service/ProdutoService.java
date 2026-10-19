@@ -32,7 +32,7 @@ public class ProdutoService {
                 request.estoque() != null ? request.estoque() : 0L
         );
         produto.setAtivo(
-                request.ativo() != null ? request.ativo() : "S"
+                request.ativo() != 0 ? request.ativo() : 'S'
         );
         produto.setCategoria(buscarCategoria(request.categoriaId()));
 
@@ -66,7 +66,7 @@ public class ProdutoService {
             produto.setEstoque(request.estoque());
         }
 
-        if (request.ativo() != null) {
+        if (request.ativo() != 0) {
             produto.setAtivo(request.ativo());
         }
 

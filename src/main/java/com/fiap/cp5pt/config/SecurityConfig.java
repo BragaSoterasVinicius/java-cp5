@@ -54,6 +54,12 @@ public class SecurityConfig {
             throws Exception {
 
         http
+
+                .csrf(csrf -> csrf.disable())
+                .authenticationProvider(authenticationProvider)
+                .securityContext(context -> context
+                        .securityContextRepository(contextRepository)
+                )
                 .authorizeHttpRequests(auth -> auth
                         // Public authentication endpoints
                         .requestMatchers("/api/auth/**").permitAll()
@@ -78,15 +84,6 @@ public class SecurityConfig {
                         ).hasRole("ADMIN")
 
                         // Everything else requires authentication
-                        .anyRequest().authenticated()
-                )
-                .csrf(csrf -> csrf.disable())
-                .authenticationProvider(authenticationProvider)
-                .securityContext(context -> context
-                        .securityContextRepository(contextRepository)
-                )
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form.disable())
