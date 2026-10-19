@@ -4,6 +4,7 @@ package com.fiap.cp5pt.service;
 import com.fiap.cp5pt.dto.request.RegistroRequest;
 import com.fiap.cp5pt.dto.response.AuthResponse;
 import com.fiap.cp5pt.exception.EmailJaCadastradoException;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import com.fiap.cp5pt.model.Usuario;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -42,6 +43,27 @@ public class AuthService {
                 salvo.getNome(),
                 salvo.getEmail(),
                 salvo.getPapel()
+        );
+    }
+
+    public AuthResponse registerAdmin(@Valid RegistroRequest request) {
+        if (repository.existsByEmail(request.email())) {
+            throw new IllegalArgumentException("Email já cadastrado");
+        }
+
+        Usuario usuario = new Usuario();
+        usuario.setNome(request.nome());
+        usuario.setEmail(request.email());
+        usuario.setSenhaHash(passwordEncoder.encode(request.senha()));
+        usuario.setPapel("ADMIN");
+
+        usuario = repository.save(usuario);
+
+        return new AuthResponse(
+                usuario.getId(),
+                usuario.getNome(),
+                usuario.getEmail(),
+                usuario.getPapel()
         );
     }
 }
