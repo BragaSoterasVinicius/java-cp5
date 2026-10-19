@@ -83,6 +83,13 @@ public class SecurityConfig {
                                 "/api/itens-venda/**"
                         ).hasRole("ADMIN")
 
+                        .requestMatchers(
+                                "/", "/login", "/register",
+                                "/css/**", "/js/**"
+                        ).permitAll()
+
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+
                         // Everything else requires authentication
                         .anyRequest().authenticated()
                 )

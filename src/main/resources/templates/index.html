@@ -1,0 +1,26 @@
+```html
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CP5 E-commerce</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>CP5 E-commerce</h1>
+    <nav>
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/register}">Create account</a>
+    </nav>
+</header>
+
+<main class="hero">
+    <h2>Welcome to our store</h2>
+    <p>Browse products and manage your shopping experience.</p>
+    <a class="button" th:href="@{/login}">Get started</a>
+</main>
+</body>
+</html>
+```
