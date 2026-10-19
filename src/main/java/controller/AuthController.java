@@ -7,6 +7,7 @@ import exception.EmailJaCadastradoException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import model.Usuario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,25 +22,16 @@ import org.springframework.web.bind.annotation.*;
 import repository.UsuarioRepository;
 import service.AuthService;
 
+
 @RestController
 @RequestMapping("/api/auth")
+@RequiredArgsConstructor
 public class AuthController {
 
     private final AuthService authService;
     private final UsuarioRepository usuarioRepository;
     private final AuthenticationManager authenticationManager;
     private final SecurityContextRepository contextRepository;
-
-    public AuthController(
-            AuthService authService,
-            UsuarioRepository usuarioRepository,
-            AuthenticationManager authenticationManager,
-            SecurityContextRepository contextRepository) {
-        this.authService = authService;
-        this.usuarioRepository = usuarioRepository;
-        this.authenticationManager = authenticationManager;
-        this.contextRepository = contextRepository;
-    }
 
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(

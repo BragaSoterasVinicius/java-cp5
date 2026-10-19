@@ -1,5 +1,6 @@
 package service;
 
+import lombok.RequiredArgsConstructor;
 import model.Usuario;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,13 +10,10 @@ import org.springframework.stereotype.Service;
 import repository.UsuarioRepository;
 
 @Service
+@RequiredArgsConstructor
 public class UsuarioDetailsService implements UserDetailsService {
 
     private final UsuarioRepository repository;
-
-    public UsuarioDetailsService(UsuarioRepository repository) {
-        this.repository = repository;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String email) {
