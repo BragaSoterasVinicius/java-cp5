@@ -2,6 +2,7 @@ package com.fiap.cp5pt.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -53,6 +54,32 @@ public class SecurityConfig {
             throws Exception {
 
         http
+                .authorizeHttpRequests(auth -> auth
+                        // Public authentication endpoints
+                        .requestMatchers("/api/auth/**").permitAll()
+
+                        // Clients and admins can browse the catalog
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                "/api/produtos/**",
+                                "/api/categorias/**"
+                        ).hasAnyRole("CLIENTE", "ADMIN")
+
+                        // Only admins can manage products and categories
+                        .requestMatchers(
+                                "/api/produtos/**",
+                                "/api/categorias/**"
+                        ).hasRole("ADMIN")
+
+                        // Only admins can manage sales and their items for now
+                        .requestMatchers(
+                                "/api/vendas/**",
+                                "/api/itens-venda/**"
+                        ).hasRole("ADMIN")
+
+                        // Everything else requires authentication
+                        .anyRequest().authenticated()
+                )
                 .csrf(csrf -> csrf.disable())
                 .authenticationProvider(authenticationProvider)
                 .securityContext(context -> context
