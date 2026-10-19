@@ -1,13 +1,13 @@
-package service;
+package com.fiap.cp5pt.service;
 
 import lombok.RequiredArgsConstructor;
-import model.Usuario;
+import com.fiap.cp5pt.model.Usuario;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import repository.UsuarioRepository;
+import com.fiap.cp5pt.repository.UsuarioRepository;
 
 @Service
 @RequiredArgsConstructor

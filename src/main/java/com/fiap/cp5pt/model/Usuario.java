@@ -1,4 +1,4 @@
-package model;
+package com.fiap.cp5pt.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,14 +1,14 @@
-package controller;
+package com.fiap.cp5pt.controller;
 
-import dto.request.LoginRequest;
-import dto.request.RegistroRequest;
-import dto.response.AuthResponse;
-import exception.EmailJaCadastradoException;
+import com.fiap.cp5pt.dto.request.LoginRequest;
+import com.fiap.cp5pt.dto.request.RegistroRequest;
+import com.fiap.cp5pt.dto.response.AuthResponse;
+import com.fiap.cp5pt.exception.EmailJaCadastradoException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import model.Usuario;
+import com.fiap.cp5pt.model.Usuario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,8 +19,8 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.web.bind.annotation.*;
-import repository.UsuarioRepository;
-import service.AuthService;
+import com.fiap.cp5pt.repository.UsuarioRepository;
+import com.fiap.cp5pt.service.AuthService;
 
 
 @RestController

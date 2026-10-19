@@ -1,6 +1,6 @@
-package repository;
+package com.fiap.cp5pt.repository;
 
-import model.Usuario;
+import com.fiap.cp5pt.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

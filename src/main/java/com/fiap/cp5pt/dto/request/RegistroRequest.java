@@ -1,4 +1,4 @@
-package dto.request;
+package com.fiap.cp5pt.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

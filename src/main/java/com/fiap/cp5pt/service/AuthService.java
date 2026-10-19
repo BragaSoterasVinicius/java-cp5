@@ -1,15 +1,15 @@
-package service;
+package com.fiap.cp5pt.service;
 
 
-import dto.request.RegistroRequest;
-import dto.response.AuthResponse;
-import exception.EmailJaCadastradoException;
+import com.fiap.cp5pt.dto.request.RegistroRequest;
+import com.fiap.cp5pt.dto.response.AuthResponse;
+import com.fiap.cp5pt.exception.EmailJaCadastradoException;
 import lombok.RequiredArgsConstructor;
-import model.Usuario;
+import com.fiap.cp5pt.model.Usuario;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import repository.UsuarioRepository;
+import com.fiap.cp5pt.repository.UsuarioRepository;
 
 @Service
 @RequiredArgsConstructor
