@@ -28,7 +28,7 @@ public class Usuario {
     private String papel = "CLIENTE";
 
     @Column(name = "ATIVO", nullable = false, length = 1)
-    private String ativo = "S";
+    private char ativo = 'S';
 
     @Column(name = "CRIADO_EM", nullable = false)
     private LocalDateTime criadoEm;
@@ -41,8 +41,8 @@ public class Usuario {
         if (papel == null) {
             papel = "CLIENTE";
         }
-        if (ativo == null) {
-            ativo = "S";
+        if (ativo == 0) {
+            ativo = 'S';
         }
     }
 }

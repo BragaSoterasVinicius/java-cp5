@@ -33,7 +33,7 @@ public class AuthService {
                 passwordEncoder.encode(request.senha())
         );
         usuario.setPapel("CLIENTE");
-        usuario.setAtivo("S");
+        usuario.setAtivo('S');
 
         Usuario salvo = repository.save(usuario);
 
