@@ -30,4 +30,9 @@ public class WebController {
     public String registerAdminPage() {
         return "register-admin";
     }
+
+    @GetMapping("/produtos")
+    public String produtos() {
+        return "produtos";
+    }
 }

@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products | CP5 E-commerce</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/produtos.js}" defer></script>
+</head>
+<body class="login-page">
+
+<main class="products-container">
+    <header class="products-header">
+        <a th:href="@{/}" class="brand">CP5 E-commerce</a>
+
+        <nav class="products-nav">
+            <a th:href="@{/}">Home</a>
+        </nav>
+    </header>
+
+    <section class="products-section">
+        <div class="products-title">
+            <div>
+                <h1>Our Products</h1>
+                <p class="subtitle">Explore our available products.</p>
+            </div>
+
+            <button
+                    type="button"
+                    id="reloadProducts"
+                    class="login-button">
+                Refresh
+            </button>
+        </div>
+
+        <p id="loadingMessage">Loading products...</p>
+
+        <p
+                id="errorMessage"
+                class="error-message"
+                role="alert"
+                hidden>
+        </p>
+
+        <p id="emptyMessage" hidden>
+            No products available at the moment.
+        </p>
+
+        <section
+                id="productsGrid"
+                class="products-grid"
+                aria-label="Product catalog">
+        </section>
+    </section>
+</main>
+
+</body>
+</html>
