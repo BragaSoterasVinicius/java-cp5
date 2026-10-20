@@ -18,10 +18,12 @@ public class UsuarioDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) {
-        return usuarioRepository.findByEmail(email)
+        String normalizedEmail = email.trim().toLowerCase();
+
+        return usuarioRepository.findByEmail(normalizedEmail)
                 .map(UsuarioDetails::new)
                 .orElseThrow(() -> new UsernameNotFoundException(
-                        "Usuário não encontrado: " + email
+                        "Usuário não encontrado: " + normalizedEmail
                 ));
     }
 }

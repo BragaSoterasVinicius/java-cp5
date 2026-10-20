@@ -1,4 +1,3 @@
-
 const loginForm = document.getElementById("loginForm");
 const loginButton = document.getElementById("loginButton");
 const errorMessage = document.getElementById("errorMessage");
@@ -11,7 +10,7 @@ loginForm.addEventListener("submit", async (event) => {
     loginButton.textContent = "Signing in...";
 
     const credentials = {
-        email: document.getElementById("email").value,
+        email: document.getElementById("email").value.trim(),
         senha: document.getElementById("senha").value
     };
 
@@ -25,20 +24,25 @@ loginForm.addEventListener("submit", async (event) => {
         });
 
         if (!response.ok) {
-            throw new Error("Invalid email or password.");
-        }
-
-        const data = await response.json();
-
-        if (!data.token) {
             throw new Error(
-                "Login succeeded, but the response did not contain a token."
+                response.status === 401
+                    ? "Invalid email or password."
+                    : "Login failed. Please try again."
             );
         }
 
-        sessionStorage.setItem("token", data.token);
+        const user = await response.json();
 
-        window.location.href = "/admin";
+        // Store the user data returned by your Java backend.
+        sessionStorage.setItem("user", JSON.stringify(user));
+
+        // Redirect according to the user's role.
+        if (user.papel === "ADMIN") {
+            window.location.href = "/admin";
+        } else {
+            window.location.href = "/";
+        }
+
     } catch (error) {
         errorMessage.textContent =
             error.message || "Unable to log in. Please try again.";

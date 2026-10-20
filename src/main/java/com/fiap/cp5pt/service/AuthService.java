@@ -1,12 +1,14 @@
 package com.fiap.cp5pt.service;
 
 
+import com.fiap.cp5pt.dto.request.LoginRequest;
 import com.fiap.cp5pt.dto.request.RegistroRequest;
 import com.fiap.cp5pt.dto.response.AuthResponse;
 import com.fiap.cp5pt.exception.EmailJaCadastradoException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import com.fiap.cp5pt.model.Usuario;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,6 +60,31 @@ public class AuthService {
         usuario.setPapel("ADMIN");
 
         usuario = repository.save(usuario);
+
+        return new AuthResponse(
+                usuario.getId(),
+                usuario.getNome(),
+                usuario.getEmail(),
+                usuario.getPapel()
+        );
+    }
+
+    public AuthResponse login(LoginRequest request) {
+        String email = request.email().trim().toLowerCase();
+
+        Usuario usuario = repository.findByEmail(email)
+                .orElseThrow(() ->
+                        new BadCredentialsException("Email ou senha inválidos"));
+
+        if (!passwordEncoder.matches(
+                request.senha(),
+                usuario.getSenhaHash())) {
+            throw new BadCredentialsException("Email ou senha inválidos");
+        }
+
+        if (usuario.getAtivo() != 'S') {
+            throw new BadCredentialsException("Usuário inativo");
+        }
 
         return new AuthResponse(
                 usuario.getId(),
