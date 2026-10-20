@@ -37,11 +37,7 @@ loginForm.addEventListener("submit", async (event) => {
         sessionStorage.setItem("user", JSON.stringify(user));
 
         // Redirect according to the user's role.
-        if (user.papel === "ADMIN") {
-            window.location.href = "/admin";
-        } else {
-            window.location.href = "/";
-        }
+        window.location.href = "/";
 
     } catch (error) {
         errorMessage.textContent =

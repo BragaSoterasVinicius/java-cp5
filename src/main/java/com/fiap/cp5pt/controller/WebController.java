@@ -25,4 +25,9 @@ public class WebController {
     public String admin() {
         return "admin/dashboard";
     }
+
+    @GetMapping("/register-admin")
+    public String registerAdminPage() {
+        return "register-admin";
+    }
 }

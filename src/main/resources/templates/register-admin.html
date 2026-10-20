@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Admin | CP5 E-commerce</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/register-admin.js}" defer></script>
+</head>
+<body class="register-page">
+
+<main class="register-container">
+    <section class="register-card">
+        <a th:href="@{/}" class="brand">CP5 E-commerce</a>
+
+        <h1>Create admin account</h1>
+        <p class="subtitle">Register a new administrator.</p>
+
+        <form id="registerAdminForm">
+            <div class="form-group">
+                <label for="nome">Full name</label>
+                <input id="nome" name="nome" type="text"
+                       autocomplete="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email"
+                       autocomplete="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Password</label>
+                <input id="senha" name="senha" type="password"
+                       autocomplete="new-password" required>
+            </div>
+
+            <p id="errorMessage" class="error-message" role="alert"></p>
+            <p id="successMessage" class="success-message" role="status"></p>
+
+            <button id="registerAdminButton"
+                    class="register-button" type="submit">
+                Create admin account
+            </button>
+        </form>
+
+        <p class="login-link">
+            <a th:href="@{/}">Back to store</a>
+        </p>
+    </section>
+</main>
+
+</body>
+</html>

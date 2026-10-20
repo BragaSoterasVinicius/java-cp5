@@ -3,22 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CP5 E-commerce</title>
+
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/index.js}" defer></script>
 </head>
 <body>
 <header>
     <h1>CP5 E-commerce</h1>
+    <a th:href="@{/register-admin}" id="adminRegisterLink">
+        Create admin account
+    </a>
     <nav>
-        <a th:href="@{/login}">Login</a>
-        <a th:href="@{/register}">Create account</a>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/login}" id="loginLink">Login</a>
+        <a th:href="@{/register}" id="registerLink">Create account</a>
+        <button id="logoutButton" hidden>Logout</button>
     </nav>
 </header>
 
 <main class="hero">
-    <h2>Welcome to our store</h2>
+    <h2 id="welcomeMessage">Welcome to our store</h2>
     <p>Browse products and manage your shopping experience.</p>
-    <a class="button" th:href="@{/login}">Get started</a>
+
+    <!-- Options available to everyone -->
+    <section>
+        <a class="button" th:href="@{/produtos}">Browse products</a>
+    </section>
+
+    <!-- CLIENTE options -->
+    <section id="clienteOptions" hidden>
+        <h3>Customer options</h3>
+        <a class="button" th:href="@{/minhas-compras}">My purchases</a>
+    </section>
+
+    <!-- ADMIN options -->
+    <section id="adminOptions" hidden>
+        <h3>Administration</h3>
+        <a class="button" th:href="@{/admin}">Admin dashboard</a>
+        <a class="button" th:href="@{/admin/produtos}">Manage products</a>
+        <a class="button" th:href="@{/admin/categorias}">Manage categories</a>
+        <a class="button" th:href="@{/admin/vendas}">Manage sales</a>
+    </section>
+    <script th:src="@{/js/index.js}"></script>
 </main>
 </body>
 </html>
