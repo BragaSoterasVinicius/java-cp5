@@ -21,6 +21,7 @@ public class ProdutoController {
     @PostMapping
     public ResponseEntity<ProdutoResponse> criar(
             @Valid @RequestBody ProdutoRequest request) {
+        System.out.println("teste");
 
         ProdutoResponse response = produtoService.criar(request);
 

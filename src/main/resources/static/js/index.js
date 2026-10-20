@@ -12,7 +12,6 @@ const userJson = sessionStorage.getItem("user");
 const user = userJson ? JSON.parse(userJson) : null;
 
 if (user) {
-    userInfo.textContent = `Welcome, ${user.nome}`;
     loginLink.hidden = true;
     registerLink.hidden = true;
     logoutButton.hidden = false;
@@ -34,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const user = JSON.parse(userData);
 
+    console.log(user);
     loginLink.hidden = true;
     registerLink.hidden = true;
     logoutButton.hidden = false;

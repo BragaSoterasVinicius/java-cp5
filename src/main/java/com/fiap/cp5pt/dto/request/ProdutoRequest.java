@@ -23,7 +23,6 @@ public record ProdutoRequest(
 
         Long categoriaId,
 
-        @Pattern(regexp = "[SN]", message = "O campo ativo deve ser S ou N")
         char ativo
 
 ) {}

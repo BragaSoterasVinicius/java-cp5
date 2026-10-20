@@ -404,3 +404,207 @@ nav a[hidden] {
         flex-direction: column;
     }
 }
+
+
+/* Product management page */
+
+.header-brand {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.management-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 5%;
+}
+
+.management-heading,
+.table-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.management-heading h1 {
+    margin: 0 0 8px;
+    font-size: 30px;
+}
+
+.management-heading p {
+    margin: 0;
+    color: #6b7280;
+}
+
+.management-card {
+    margin-bottom: 32px;
+    padding: 28px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+.management-card h2 {
+    margin: 0 0 24px;
+    font-size: 21px;
+}
+
+.management-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+}
+
+.management-form-grid .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.management-form-grid label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.management-form-grid input,
+.management-form-grid textarea,
+.management-form-grid select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: white;
+    color: #1f2937;
+    font: inherit;
+}
+
+.management-form-grid input:focus,
+.management-form-grid textarea:focus,
+.management-form-grid select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.description-group {
+    grid-column: 1 / -1;
+}
+
+.management-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.management-actions .button {
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+.management-actions .button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.secondary-button,
+.danger-button {
+    display: inline-block;
+    padding: 9px 13px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    background: white;
+    color: #374151;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.secondary-button:hover {
+    background: #f3f4f6;
+}
+
+.danger-button {
+    border-color: #fecaca;
+    color: #dc2626;
+}
+
+.danger-button:hover {
+    background: #fef2f2;
+}
+
+.table-heading {
+    margin-bottom: 16px;
+}
+
+.table-heading h2 {
+    margin: 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.products-table th,
+.products-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+.products-table th {
+    background: #f9fafb;
+    color: #374151;
+    font-size: 13px;
+}
+
+.products-table td {
+    font-size: 14px;
+}
+
+.table-actions {
+    display: flex;
+    gap: 8px;
+}
+
+#statusMessage {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+@media (max-width: 700px) {
+    .management-container {
+        padding: 24px 16px;
+    }
+
+    .management-card {
+        padding: 20px 16px;
+    }
+
+    .management-heading,
+    .table-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .management-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .description-group {
+        grid-column: auto;
+    }
+}

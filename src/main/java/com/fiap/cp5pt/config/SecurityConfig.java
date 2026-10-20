@@ -77,6 +77,11 @@ public class SecurityConfig {
                                 "/api/categorias/**"
                         ).hasRole("ADMIN")
 
+                        .requestMatchers(
+                                HttpMethod.GET,
+                                "/produtos/gerenciar"
+                        ).hasAnyRole("CLIENTE", "ADMIN")
+
                         // Only admins can manage sales and their items for now
                         .requestMatchers(
                                 "/api/vendas/**",

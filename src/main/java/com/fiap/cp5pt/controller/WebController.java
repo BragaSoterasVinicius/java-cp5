@@ -35,4 +35,8 @@ public class WebController {
     public String produtos() {
         return "produtos";
     }
+    @GetMapping("/produtos/gerenciar")
+    public String gerenciarProdutos() {
+        return "gerenciar-produtos";
+    }
 }
