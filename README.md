@@ -1,6 +1,6 @@
 # CP5 E-commerce
 
-Aplicação de e-commerce desenvolvida com Spring Boot para o projeto CP5 da FIAP. O sistema combina uma interface web renderizada no servidor com endpoints REST para autenticação e gerenciamento de produtos.
+Aplicação de e-commerce desenvolvida com Spring Boot para o projeto CP5 da FIAP pelo INTELLIJ. O sistema combina uma interface web renderizada no servidor com endpoints REST para autenticação e gerenciamento de produtos.
 
 ## Funcionalidades
 
